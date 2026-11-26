@@ -3,7 +3,7 @@ package estructuras;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-/** Pila LIFO que utiliza el último índice del vector como cima. */
+/** Pila LIFO que utiliza el ultimo indice del vector como cima. */
 public final class Pila<T> {
     private final Vector<T> elementos = new Vector<>();
 
@@ -31,7 +31,7 @@ public final class Pila<T> {
 
     private void validarContenido() {
         if (estaVacia()) {
-            throw new NoSuchElementException("La pila está vacía.");
+            throw new NoSuchElementException("La pila esta vacia.");
         }
     }
 }

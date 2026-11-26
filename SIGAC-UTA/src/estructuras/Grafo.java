@@ -2,7 +2,7 @@ package estructuras;
 
 import java.util.Objects;
 
-/** Grafo dinámico con listas de adyacencia en el orden de inserción. */
+/** Grafo dinamico con listas de adyacencia en el orden de insercion. */
 public final class Grafo<K> {
     public record Conexion<K>(K origen, K destino, int peso) {
         @Override
@@ -45,7 +45,7 @@ public final class Grafo<K> {
     public void agregarVertice(K id) {
         validarId(id);
         if (buscarVertice(id) != null) {
-            throw new IllegalArgumentException("Ya existe el vértice " + id + ".");
+            throw new IllegalArgumentException("Ya existe el vertice " + id + ".");
         }
         vertices.agregar(new Vertice<>(id, vertices.tamano()));
     }
@@ -64,13 +64,13 @@ public final class Grafo<K> {
         Vertice<K> origen = exigirVertice(idOrigen);
         Vertice<K> destino = exigirVertice(idDestino);
         if (origen == destino) {
-            throw new IllegalArgumentException("Una conexión requiere dos vértices distintos.");
+            throw new IllegalArgumentException("Una conexion requiere dos vertices distintos.");
         }
         if (peso <= 0) {
             throw new IllegalArgumentException("El peso debe ser un entero positivo.");
         }
         if (indiceArista(origen, destino) >= 0) {
-            throw new IllegalArgumentException("Esa conexión ya existe.");
+            throw new IllegalArgumentException("Esa conexion ya existe.");
         }
         origen.salientes.agregar(new Arista<>(destino, peso));
         if (!dirigido) {
@@ -82,7 +82,7 @@ public final class Grafo<K> {
         Vertice<K> origen = exigirVertice(idOrigen);
         Vertice<K> destino = exigirVertice(idDestino);
         if (!retirarArista(origen, destino)) {
-            throw new IllegalArgumentException("La conexión indicada no existe.");
+            throw new IllegalArgumentException("La conexion indicada no existe.");
         }
         if (!dirigido) {
             retirarArista(destino, origen);
@@ -195,7 +195,7 @@ public final class Grafo<K> {
         validarId(id);
         Vertice<K> vertice = buscarVertice(id);
         if (vertice == null) {
-            throw new IllegalArgumentException("El vértice " + id + " no existe.");
+            throw new IllegalArgumentException("El vertice " + id + " no existe.");
         }
         return vertice;
     }
@@ -211,7 +211,7 @@ public final class Grafo<K> {
 
     private void validarId(K id) {
         if (id == null) {
-            throw new IllegalArgumentException("El identificador del vértice es obligatorio.");
+            throw new IllegalArgumentException("El identificador del vertice es obligatorio.");
         }
     }
 

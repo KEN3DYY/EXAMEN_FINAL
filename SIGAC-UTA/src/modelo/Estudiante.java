@@ -7,10 +7,10 @@ public final class Estudiante {
 
     public Estudiante(int matricula, String nombre, String codigoCarrera) {
         if (matricula <= 0) {
-            throw new IllegalArgumentException("La matrícula debe ser un entero positivo.");
+            throw new IllegalArgumentException("La matricula debe ser un entero positivo.");
         }
         this.matricula = matricula;
-        this.codigoCarrera = textoObligatorio(codigoCarrera, "El código de carrera");
+        this.codigoCarrera = textoObligatorio(codigoCarrera, "El codigo de carrera");
         cambiarNombre(nombre);
     }
 

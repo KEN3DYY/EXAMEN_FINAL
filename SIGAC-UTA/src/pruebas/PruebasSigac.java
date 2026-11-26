@@ -38,20 +38,20 @@ public final class PruebasSigac {
 
     private void ejecutar() {
         salida.println("=== Pruebas automatizadas SIGAC-UTA ===");
-        prueba("P01", "CRUD y edición visible en los índices y la jerarquía", () -> {
+        prueba("P01", "CRUD y edicion visible en los indices y la jerarquia", () -> {
             Sigac app = new Sigac();
             app.registrarEstudiante(12, "Isabel", CARRERA);
             igual("[12 | Isabel | SOF]", app.estudiantes().listar().toString());
-            app.actualizarNombre(12, "Isabel López");
+            app.actualizarNombre(12, "Isabel Lopez");
             var consulta = app.estudiantes().compararBusquedas(12);
-            igual("Isabel López", consulta.secuencial().valor().nombre());
+            igual("Isabel Lopez", consulta.secuencial().valor().nombre());
             igual(consulta.secuencial().valor(), consulta.abb().valor());
-            contiene(app.organizacion().lineasJerarquia().toString(), "Estudiante 12 - Isabel López");
+            contiene(app.organizacion().lineasJerarquia().toString(), "Estudiante 12 - Isabel Lopez");
             igual(12, app.eliminarEstudiante(12).matricula());
             igual("[]", app.estudiantes().listar().toString());
             igual("[]", app.organizacion().matriculasDeCarrera(CARRERA).toString());
         });
-        prueba("P02", "Matrícula duplicada y baja de ID inexistente", () -> {
+        prueba("P02", "Matricula duplicada y baja de ID inexistente", () -> {
             Sigac app = CasoIntegrador.preparar();
             error(IllegalArgumentException.class, () -> app.registrarEstudiante(50, "Duplicado", CARRERA));
             error(IllegalArgumentException.class, () -> app.eliminarEstudiante(99));
@@ -59,7 +59,7 @@ public final class PruebasSigac {
             igual("Ana", nombre(app, 50));
             igual("[50, 30, 70, 20, 40, 60, 80]", app.organizacion().matriculasDeCarrera(CARRERA).toString());
         });
-        prueba("P03", "Referencias nulas, campos vacíos e ID inválido", () -> {
+        prueba("P03", "Referencias nulas, campos vacios e ID invalido", () -> {
             Sigac app = new Sigac();
             error(IllegalArgumentException.class, () -> app.registrarEstudiante(10, null, CARRERA));
             error(IllegalArgumentException.class, () -> app.registrarEstudiante(10, " ", CARRERA));
@@ -69,7 +69,7 @@ public final class PruebasSigac {
             igual(0, app.estudiantes().listar().tamano());
             igual("[]", app.estudiantes().inorden().toString());
         });
-        prueba("P04", "Comparación de búsquedas exitosas y fallidas", () -> {
+        prueba("P04", "Comparacion de busquedas exitosas y fallidas", () -> {
             Sigac app = CasoIntegrador.preparar();
             var existente = app.estudiantes().compararBusquedas(40);
             igual(5, existente.secuencial().comparaciones());
@@ -81,7 +81,7 @@ public final class PruebasSigac {
             igual(7, ausente.secuencial().comparaciones());
             igual(3, ausente.abb().comparaciones());
         });
-        prueba("P05", "Lista enlazada: inicio, medio, fin y reinserción", () -> {
+        prueba("P05", "Lista enlazada: inicio, medio, fin y reinsercion", () -> {
             ListaEnlazada<Integer> lista = new ListaEnlazada<>();
             for (int valor = 1; valor <= 4; valor++) {
                 lista.agregar(valor);
@@ -96,7 +96,7 @@ public final class PruebasSigac {
             lista.agregar(6);
             igual("5, 6", unir(lista));
         });
-        prueba("P06", "Vector: redimensionamiento, eliminación e índice inválido", () -> {
+        prueba("P06", "Vector: redimensionamiento, eliminacion e indice invalido", () -> {
             Vector<Integer> vector = new Vector<>();
             for (int valor = 0; valor < 20; valor++) {
                 vector.agregar(valor);
@@ -113,7 +113,7 @@ public final class PruebasSigac {
             igual("[20, 30, 40, 50, 60, 70, 80]", estudiantes.inorden().toString());
             igual("[20, 40, 30, 60, 80, 70, 50]", estudiantes.posorden().toString());
         });
-        prueba("P08", "Eliminar 30 del ABB y mantener coherencia entre módulos", () -> {
+        prueba("P08", "Eliminar 30 del ABB y mantener coherencia entre modulos", () -> {
             Sigac app = CasoIntegrador.preparar();
             app.eliminarEstudiante(30);
             igual("[20, 40, 50, 60, 70, 80]", app.estudiantes().inorden().toString());
@@ -125,7 +125,7 @@ public final class PruebasSigac {
             igual(false, consulta.abb().encontrada());
             error(IllegalArgumentException.class, () -> app.social().amigosDe(30));
         });
-        prueba("P09", "Eliminar raíz: sucesor profundo conserva su hijo derecho", () -> {
+        prueba("P09", "Eliminar raiz: sucesor profundo conserva su hijo derecho", () -> {
             ArbolBinarioBusqueda<Integer> arbol = new ArbolBinarioBusqueda<>();
             for (int clave : new int[]{50, 30, 80, 60, 70, 90}) {
                 igual(true, arbol.insertar(clave, clave));
@@ -137,7 +137,7 @@ public final class PruebasSigac {
             igual(70, arbol.buscar(70).valor());
             igual(false, arbol.buscar(50).encontrada());
         });
-        prueba("P10", "ABB vacío, raíz con un hijo y eliminación de nodo único", () -> {
+        prueba("P10", "ABB vacio, raiz con un hijo y eliminacion de nodo unico", () -> {
             ArbolBinarioBusqueda<Integer> arbol = new ArbolBinarioBusqueda<>();
             igual("[]", arbol.inorden().toString());
             igual(0, arbol.buscar(1).comparaciones());
@@ -149,7 +149,7 @@ public final class PruebasSigac {
             igual(true, arbol.eliminar(1));
             igual("[]", arbol.posorden().toString());
         });
-        prueba("P11", "Árbol general con más de una facultad y carrera", () -> {
+        prueba("P11", "Arbol general con mas de una facultad y carrera", () -> {
             Sigac app = new Sigac();
             app.organizacion().agregarFacultad("F2", "Facultad 2");
             app.organizacion().agregarCarrera("F2", "C2", "Carrera 2");
@@ -173,7 +173,7 @@ public final class PruebasSigac {
             }
             igual(0, app.atencion().listarPendientes().tamano());
         });
-        prueba("P13", "Cola vacía, llamada con nulo y nueva inserción", () -> {
+        prueba("P13", "Cola vacia, llamada con nulo y nueva insercion", () -> {
             Cola<Integer> cola = new Cola<>();
             error(NoSuchElementException.class, cola::desencolar);
             error(NullPointerException.class, () -> cola.encolar(null));
@@ -196,7 +196,7 @@ public final class PruebasSigac {
             igual("Estudiante 80", nombre(app, 80));
             igual(0, app.cambiosPendientes());
         });
-        prueba("P15", "Pila vacía y cambios sin efecto o con valor inválido", () -> {
+        prueba("P15", "Pila vacia y cambios sin efecto o con valor invalido", () -> {
             Sigac app = CasoIntegrador.preparar();
             error(NoSuchElementException.class, app::deshacerCambio);
             igual(false, app.actualizarNombre(50, " Ana "));
@@ -255,7 +255,7 @@ public final class PruebasSigac {
             igual("[PC4]", red.bfs("PC4").visitados().toString());
             igual("[PC2]", red.bfs("PC2").visitados().toString());
         });
-        prueba("P20", "DFS reproduce el orden de inserción de vecinos", () -> {
+        prueba("P20", "DFS reproduce el orden de insercion de vecinos", () -> {
             var resultado = CasoIntegrador.preparar().laboratorio().dfs("PC1");
             igual("[PC1, SW1, SRV1, PC2, PC3]", resultado.visitados().toString());
             igual("[PC4]", resultado.noAlcanzables().toString());
@@ -278,7 +278,7 @@ public final class PruebasSigac {
             igual("[PC1, SW1, SRV1, PC2, PC3, PC4]", red.dfs("PC1").visitados().toString());
             igual("[]", red.bfs("PC1").noAlcanzables().toString());
         });
-        prueba("P23", "Validación de vértices, aristas, pesos y red vacía", () -> {
+        prueba("P23", "Validacion de vertices, aristas, pesos y red vacia", () -> {
             var red = CasoIntegrador.preparar().laboratorio();
             error(IllegalArgumentException.class, () -> red.registrarEquipo("PC1"));
             error(IllegalArgumentException.class, () -> red.registrarEquipo(null));
@@ -303,7 +303,7 @@ public final class PruebasSigac {
             igual("[PC1, PC3, SW1]", red.bfs("PC1").visitados().toString());
             igual("[SW1]", red.dfs("SW1").visitados().toString());
         });
-        prueba("P25", "Ana: Diego con dos amigos en común y Elena con uno", () -> {
+        prueba("P25", "Ana: Diego con dos amigos en comun y Elena con uno", () -> {
             var recomendaciones = CasoIntegrador.preparar().social().recomendar(50);
             igual(2, recomendaciones.tamano());
             igual("Diego", recomendaciones.obtener(0).estudiante().nombre());
@@ -311,7 +311,7 @@ public final class PruebasSigac {
             igual("Elena", recomendaciones.obtener(1).estudiante().nombre());
             igual(1, recomendaciones.obtener(1).amigosEnComun());
         });
-        prueba("P26", "Exclusión de usuario, directos y contactos de tercer grado", () -> {
+        prueba("P26", "Exclusion de usuario, directos y contactos de tercer grado", () -> {
             var social = CasoIntegrador.preparar().social();
             social.agregarAmistad(50, 40);
             social.agregarAmistad(60, 30);
@@ -320,7 +320,7 @@ public final class PruebasSigac {
             igual(60, candidatos.obtener(0).estudiante().matricula());
             igual(0, social.recomendar(80).tamano());
         });
-        prueba("P27", "Desempate por matrícula y retirada de amistad recíproca", () -> {
+        prueba("P27", "Desempate por matricula y retirada de amistad reciproca", () -> {
             var social = CasoIntegrador.preparar().social();
             social.quitarAmistad(40, 70);
             igual("50", matriculas(social.amigosDe(70)));
@@ -332,7 +332,7 @@ public final class PruebasSigac {
             igual(1, candidatos.obtener(0).amigosEnComun());
             igual(1, candidatos.obtener(1).amigosEnComun());
         });
-        prueba("P28", "Amistad duplicada, inexistente y autorrelación", () -> {
+        prueba("P28", "Amistad duplicada, inexistente y autorrelacion", () -> {
             var social = CasoIntegrador.preparar().social();
             error(IllegalArgumentException.class, () -> social.agregarAmistad(70, 50));
             error(IllegalArgumentException.class, () -> social.agregarAmistad(50, 50));
@@ -340,40 +340,40 @@ public final class PruebasSigac {
             error(IllegalArgumentException.class, () -> social.recomendar(99));
             igual("70, 20", matriculas(social.amigosDe(50)));
         });
-        prueba("P29", "Caso obligatorio desde el menú y separado de la sesión", () -> {
+        prueba("P29", "Caso obligatorio desde el menu y separado de la sesion", () -> {
             Sigac app = new Sigac();
             app.registrarEstudiante(15, "Estudiante local", CARRERA);
             String texto = ejecutarMenu(app, "6\n0\n");
             contiene(texto, "Inorden:  [20, 30, 40, 50, 60, 70, 80]");
-            contiene(texto, "Inorden después de eliminar 30: [20, 40, 50, 60, 70, 80]");
+            contiene(texto, "Inorden despues de eliminar 30: [20, 40, 50, 60, 70, 80]");
             contiene(texto, "Atendida: S3");
             contiene(texto, "Segundo deshacer: 80 vuelve a Estudiante 80.");
             contiene(texto, "No alcanzables desde PC1: [PC4]");
-            contiene(texto, "Diego | amigos en común: 2");
-            contiene(texto, "Elena | amigos en común: 1");
+            contiene(texto, "Diego | amigos en comun: 2");
+            contiene(texto, "Elena | amigos en comun: 1");
             contiene(texto, "No alcanzables desde PC1: [SRV1, PC2, PC4]");
-            contiene(texto, "Fin de sesión.");
+            contiene(texto, "Fin de sesion.");
             igual("[15]", app.estudiantes().inorden().toString());
             igual(texto, ejecutarMenu(app, "6\n0\n"));
         });
-        prueba("P30", "Menú: entradas inválidas, CRUD interactivo y cola vacía", () -> {
-            String entradas = String.join("\n", "abc", "99", "1", "1", "10", "Inés", CARRERA,
-                    "3", "10", "4", "10", "Inés Luz", "0", "2", "4", "3", "0", "1", "5", "10", "0", "0", "");
+        prueba("P30", "Menu: entradas invalidas, CRUD interactivo y cola vacia", () -> {
+            String entradas = String.join("\n", "abc", "99", "1", "1", "10", "Ines", CARRERA,
+                    "3", "10", "4", "10", "Ines Luz", "0", "2", "4", "3", "0", "1", "5", "10", "0", "0", "");
             String texto = ejecutarMenu(new Sigac(), entradas);
-            contiene(texto, "Error: Ingrese un número entero válido.");
-            contiene(texto, "Error: Opción fuera del menú.");
-            contiene(texto, "Estudiante registrado: 10 | Inés | SOF");
-            contiene(texto, "ABB (1 comparación): 10 | Inés | SOF");
+            contiene(texto, "Error: Ingrese un numero entero valido.");
+            contiene(texto, "Error: Opcion fuera del menu.");
+            contiene(texto, "Estudiante registrado: 10 | Ines | SOF");
+            contiene(texto, "ABB (1 comparacion): 10 | Ines | SOF");
             contiene(texto, "Nombre actualizado.");
-            contiene(texto, "Nombre restaurado: 10 | Inés | SOF");
-            contiene(texto, "Error: La cola está vacía.");
-            contiene(texto, "Estudiante eliminado: 10 | Inés | SOF");
-            contiene(texto, "Fin de sesión.");
+            contiene(texto, "Nombre restaurado: 10 | Ines | SOF");
+            contiene(texto, "Error: La cola esta vacia.");
+            contiene(texto, "Estudiante eliminado: 10 | Ines | SOF");
+            contiene(texto, "Fin de sesion.");
         });
-        prueba("P31", "El fin de entrada durante un formulario cierra la sesión", () -> {
+        prueba("P31", "El fin de entrada durante un formulario cierra la sesion", () -> {
             Sigac app = new Sigac();
             String texto = ejecutarMenu(app, "1\n1\n21\n");
-            contiene(texto, "Fin de sesión.");
+            contiene(texto, "Fin de sesion.");
             igual(0, app.estudiantes().listar().tamano());
         });
         salida.printf("%nRESULTADO: %d aprobadas de %d | %d fallidas%n", aprobadas, aprobadas + fallidas, fallidas);
@@ -438,8 +438,8 @@ public final class PruebasSigac {
             if (tipo.isInstance(obtenida)) {
                 return;
             }
-            throw new AssertionError("Se esperaba " + tipo.getSimpleName() + " pero ocurrió " + obtenida, obtenida);
+            throw new AssertionError("Se esperaba " + tipo.getSimpleName() + " pero ocurrio " + obtenida, obtenida);
         }
-        throw new AssertionError("Se esperaba una excepción " + tipo.getSimpleName() + ".");
+        throw new AssertionError("Se esperaba una excepcion " + tipo.getSimpleName() + ".");
     }
 }

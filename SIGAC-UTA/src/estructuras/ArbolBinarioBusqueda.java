@@ -2,7 +2,7 @@ package estructuras;
 
 import java.util.Objects;
 
-/** ABB sin balanceo, con claves enteras únicas. */
+/** ABB sin balanceo, con claves enteras unicas. */
 public final class ArbolBinarioBusqueda<T> {
     public record Busqueda<T>(T valor, int comparaciones) {
         public boolean encontrada() {

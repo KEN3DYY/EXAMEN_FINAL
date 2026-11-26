@@ -46,7 +46,7 @@ public final class ArbolGeneral<T> {
     public void eliminarHoja(Nodo<T> hoja) {
         validarNodo(hoja);
         if (hoja.padre == null || !hoja.hijos.estaVacio()) {
-            throw new IllegalArgumentException("Solo se puede retirar una hoja distinta de la raíz.");
+            throw new IllegalArgumentException("Solo se puede retirar una hoja distinta de la raiz.");
         }
         Vector<Nodo<T>> hermanos = hoja.padre.hijos;
         for (int i = 0; i < hermanos.tamano(); i++) {
@@ -61,7 +61,7 @@ public final class ArbolGeneral<T> {
 
     private void validarNodo(Nodo<T> nodo) {
         if (nodo == null || nodo.arbol != this || !nodo.activo) {
-            throw new IllegalArgumentException("El nodo debe estar activo en este árbol.");
+            throw new IllegalArgumentException("El nodo debe estar activo en este arbol.");
         }
     }
 }

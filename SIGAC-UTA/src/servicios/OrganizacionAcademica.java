@@ -21,17 +21,17 @@ public final class OrganizacionAcademica {
     }
 
     private final ArbolGeneral<Elemento> arbol = new ArbolGeneral<>(
-            new Elemento(Nivel.UNIVERSIDAD, "UTA", "Universidad Técnica de Ambato", null));
+            new Elemento(Nivel.UNIVERSIDAD, "UTA", "Universidad Tecnica de Ambato", null));
 
     public OrganizacionAcademica() {
-        agregarFacultad("FISEI", "Facultad de Ingeniería en Sistemas, Electrónica e Industrial");
-        agregarCarrera("FISEI", CARRERA_BASE, "Ingeniería en Software");
+        agregarFacultad("FISEI", "Facultad de Ingenieria en Sistemas, Electronica e Industrial");
+        agregarCarrera("FISEI", CARRERA_BASE, "Ingenieria en Software");
     }
 
     public void agregarFacultad(String codigo, String nombre) {
-        String clave = Estudiante.textoObligatorio(codigo, "El código de facultad");
+        String clave = Estudiante.textoObligatorio(codigo, "El codigo de facultad");
         if (buscarHijo(arbol.raiz(), clave) != null) {
-            throw new IllegalArgumentException("Ya existe una facultad con código " + clave + ".");
+            throw new IllegalArgumentException("Ya existe una facultad con codigo " + clave + ".");
         }
         arbol.agregarHijo(arbol.raiz(), new Elemento(Nivel.FACULTAD, clave,
                 Estudiante.textoObligatorio(nombre, "El nombre de la facultad"), null));
@@ -39,13 +39,13 @@ public final class OrganizacionAcademica {
 
     public void agregarCarrera(String codigoFacultad, String codigo, String nombre) {
         Nodo<Elemento> facultad = buscarHijo(arbol.raiz(),
-                Estudiante.textoObligatorio(codigoFacultad, "El código de facultad"));
+                Estudiante.textoObligatorio(codigoFacultad, "El codigo de facultad"));
         if (facultad == null) {
             throw new IllegalArgumentException("La facultad indicada no existe.");
         }
-        String clave = Estudiante.textoObligatorio(codigo, "El código de carrera");
+        String clave = Estudiante.textoObligatorio(codigo, "El codigo de carrera");
         if (buscarCarrera(clave) != null) {
-            throw new IllegalArgumentException("Ya existe una carrera con código " + clave + ".");
+            throw new IllegalArgumentException("Ya existe una carrera con codigo " + clave + ".");
         }
         arbol.agregarHijo(facultad, new Elemento(Nivel.CARRERA, clave,
                 Estudiante.textoObligatorio(nombre, "El nombre de la carrera"), null));
@@ -84,7 +84,7 @@ public final class OrganizacionAcademica {
     }
 
     private Nodo<Elemento> exigirCarrera(String codigo) {
-        String clave = Estudiante.textoObligatorio(codigo, "El código de carrera");
+        String clave = Estudiante.textoObligatorio(codigo, "El codigo de carrera");
         Nodo<Elemento> carrera = buscarCarrera(clave);
         if (carrera == null) {
             throw new IllegalArgumentException("La carrera " + clave + " no existe.");

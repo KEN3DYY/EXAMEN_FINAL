@@ -21,7 +21,7 @@ public final class GestionEstudiantes {
     Estudiante registrar(int matricula, String nombre, String codigoCarrera) {
         Estudiante estudiante = new Estudiante(matricula, nombre, codigoCarrera);
         if (indice.buscar(matricula).encontrada()) {
-            throw new IllegalArgumentException("La matrícula " + matricula + " ya está registrada.");
+            throw new IllegalArgumentException("La matricula " + matricula + " ya esta registrada.");
         }
         organizacion.agregarEstudiante(estudiante);
         estudiantes.agregar(estudiante);
@@ -46,7 +46,7 @@ public final class GestionEstudiantes {
         validarMatricula(matricula);
         Estudiante estudiante = indice.buscar(matricula).valor();
         if (estudiante == null) {
-            throw new IllegalArgumentException("La matrícula " + matricula + " no existe.");
+            throw new IllegalArgumentException("La matricula " + matricula + " no existe.");
         }
         return estudiante;
     }
@@ -85,7 +85,7 @@ public final class GestionEstudiantes {
 
     private void validarMatricula(int matricula) {
         if (matricula <= 0) {
-            throw new IllegalArgumentException("La matrícula debe ser un entero positivo.");
+            throw new IllegalArgumentException("La matricula debe ser un entero positivo.");
         }
     }
 }

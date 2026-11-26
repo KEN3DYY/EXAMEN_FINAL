@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.StringJoiner;
 
-/** Arreglo redimensionable con acceso directo por índice. */
+/** Arreglo redimensionable con acceso directo por indice. */
 public final class Vector<T> implements Iterable<T> {
     private Object[] datos = new Object[4];
     private int tamano;
@@ -54,7 +54,7 @@ public final class Vector<T> implements Iterable<T> {
 
     private void validarIndice(int indice) {
         if (indice < 0 || indice >= tamano) {
-            throw new IndexOutOfBoundsException("Índice fuera del vector: " + indice);
+            throw new IndexOutOfBoundsException("Indice fuera del vector: " + indice);
         }
     }
 

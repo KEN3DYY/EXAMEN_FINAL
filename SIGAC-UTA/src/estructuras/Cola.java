@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-/** Cola FIFO enlazada con inserción y extracción en tiempo constante. */
+/** Cola FIFO enlazada con insercion y extraccion en tiempo constante. */
 public final class Cola<T> implements Iterable<T> {
     private static final class Nodo<T> {
         private final T valor;
@@ -40,7 +40,7 @@ public final class Cola<T> implements Iterable<T> {
 
     public T desencolar() {
         if (estaVacia()) {
-            throw new NoSuchElementException("La cola está vacía.");
+            throw new NoSuchElementException("La cola esta vacia.");
         }
         T valor = primero.valor;
         primero = primero.siguiente;

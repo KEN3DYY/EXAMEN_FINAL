@@ -44,6 +44,6 @@ public final class RedLaboratorio {
     }
 
     private String validarCodigo(String codigo) {
-        return Estudiante.textoObligatorio(codigo, "El código de equipo");
+        return Estudiante.textoObligatorio(codigo, "El codigo de equipo");
     }
 }

@@ -13,8 +13,8 @@ public final class Menu {
     private static final String PRINCIPAL = """
             === SIGAC-UTA ===
             1. Estudiantes
-            2. Atención de laboratorio e historial
-            3. Organización académica y ABB
+            2. Atencion de laboratorio e historial
+            3. Organizacion academica y ABB
             4. Red de laboratorios
             5. Amistades y recomendaciones
             6. Ejecutar caso integrador
@@ -25,24 +25,24 @@ public final class Menu {
             -- Estudiantes --
             1. Registrar estudiante
             2. Listar estudiantes
-            3. Buscar por matrícula y comparar
+            3. Buscar por matricula y comparar
             4. Actualizar nombre
             5. Eliminar estudiante
             0. Volver
             """;
 
     private static final String ATENCION = """
-            -- Atención de laboratorio e historial --
+            -- Atencion de laboratorio e historial --
             1. Registrar solicitud
             2. Listar solicitudes pendientes
             3. Atender siguiente solicitud
-            4. Deshacer último cambio de nombre
+            4. Deshacer ultimo cambio de nombre
             0. Volver
             """;
 
     private static final String ACADEMICO = """
-            -- Organización académica y ABB --
-            1. Mostrar jerarquía académica
+            -- Organizacion academica y ABB --
+            1. Mostrar jerarquia academica
             2. Registrar facultad
             3. Registrar carrera
             4. Mostrar recorridos del ABB
@@ -53,8 +53,8 @@ public final class Menu {
             -- Red de laboratorios --
             1. Registrar equipo
             2. Listar equipos y conexiones
-            3. Agregar conexión
-            4. Eliminar conexión
+            3. Agregar conexion
+            4. Eliminar conexion
             5. Ejecutar BFS y mostrar no alcanzables
             6. Ejecutar DFS y mostrar no alcanzables
             7. Eliminar equipo
@@ -100,7 +100,7 @@ public final class Menu {
         } catch (FinEntrada fin) {
             salida.println();
         }
-        salida.println("Fin de sesión.");
+        salida.println("Fin de sesion.");
     }
 
     private void abrir(String opciones, IntConsumer procesar) {
@@ -108,7 +108,7 @@ public final class Menu {
             salida.println();
             salida.print(opciones);
             try {
-                int opcion = entero("Opción: ");
+                int opcion = entero("Opcion: ");
                 if (opcion == 0) {
                     return;
                 }
@@ -122,22 +122,22 @@ public final class Menu {
     private void estudiantes(int opcion) {
         switch (opcion) {
             case 1 -> {
-                Estudiante estudiante = sistema.registrarEstudiante(entero("Matrícula: "),
-                        leer("Nombre: "), leer("Código de carrera (p. ej. SOF): "));
+                Estudiante estudiante = sistema.registrarEstudiante(entero("Matricula: "),
+                        leer("Nombre: "), leer("Codigo de carrera (p. ej. SOF): "));
                 salida.println("Estudiante registrado: " + estudiante);
             }
             case 2 -> listar(sistema.estudiantes().listar(), "Sin estudiantes registrados.");
             case 3 -> {
-                var comparacion = sistema.estudiantes().compararBusquedas(entero("Matrícula: "));
+                var comparacion = sistema.estudiantes().compararBusquedas(entero("Matricula: "));
                 imprimirBusqueda("Secuencial", comparacion.secuencial());
                 imprimirBusqueda("ABB", comparacion.abb());
             }
             case 4 -> {
-                boolean cambio = sistema.actualizarNombre(entero("Matrícula: "), leer("Nuevo nombre: "));
+                boolean cambio = sistema.actualizarNombre(entero("Matricula: "), leer("Nuevo nombre: "));
                 salida.println(cambio ? "Nombre actualizado." : "El nombre ya tiene ese valor.");
             }
             case 5 -> salida.println("Estudiante eliminado: "
-                    + sistema.eliminarEstudiante(entero("Matrícula: ")));
+                    + sistema.eliminarEstudiante(entero("Matricula: ")));
             default -> opcionInvalida();
         }
     }
@@ -145,8 +145,8 @@ public final class Menu {
     private void atencion(int opcion) {
         switch (opcion) {
             case 1 -> {
-                sistema.registrarSolicitud(entero("ID numérico de solicitud: "), entero("Matrícula: "),
-                        leer("Código de equipo: "));
+                sistema.registrarSolicitud(entero("ID numerico de solicitud: "), entero("Matricula: "),
+                        leer("Codigo de equipo: "));
                 salida.println("Solicitud encolada.");
             }
             case 2 -> listar(sistema.atencion().listarPendientes(), "Sin solicitudes pendientes.");
@@ -158,14 +158,14 @@ public final class Menu {
 
     private void academico(int opcion) {
         switch (opcion) {
-            case 1 -> listar(sistema.organizacion().lineasJerarquia(), "Jerarquía vacía.");
+            case 1 -> listar(sistema.organizacion().lineasJerarquia(), "Jerarquia vacia.");
             case 2 -> {
-                sistema.organizacion().agregarFacultad(leer("Código de facultad: "), leer("Nombre: "));
+                sistema.organizacion().agregarFacultad(leer("Codigo de facultad: "), leer("Nombre: "));
                 salida.println("Facultad registrada.");
             }
             case 3 -> {
-                sistema.organizacion().agregarCarrera(leer("Código de facultad: "),
-                        leer("Código de carrera: "), leer("Nombre: "));
+                sistema.organizacion().agregarCarrera(leer("Codigo de facultad: "),
+                        leer("Codigo de carrera: "), leer("Nombre: "));
                 salida.println("Carrera registrada.");
             }
             case 4 -> {
@@ -180,7 +180,7 @@ public final class Menu {
     private void laboratorio(int opcion) {
         switch (opcion) {
             case 1 -> {
-                sistema.laboratorio().registrarEquipo(leer("Código de equipo: "));
+                sistema.laboratorio().registrarEquipo(leer("Codigo de equipo: "));
                 salida.println("Equipo registrado.");
             }
             case 2 -> {
@@ -190,16 +190,16 @@ public final class Menu {
             case 3 -> {
                 sistema.laboratorio().conectar(leer("Equipo origen: "), leer("Equipo destino: "),
                         entero("Peso entero: "));
-                salida.println("Conexión registrada.");
+                salida.println("Conexion registrada.");
             }
             case 4 -> {
                 sistema.laboratorio().desconectar(leer("Equipo origen: "), leer("Equipo destino: "));
-                salida.println("Conexión eliminada.");
+                salida.println("Conexion eliminada.");
             }
             case 5 -> imprimirRecorrido("BFS", sistema.laboratorio().bfs(leer("Equipo inicial: ")));
             case 6 -> imprimirRecorrido("DFS", sistema.laboratorio().dfs(leer("Equipo inicial: ")));
             case 7 -> {
-                sistema.eliminarEquipo(leer("Código de equipo: "));
+                sistema.eliminarEquipo(leer("Codigo de equipo: "));
                 salida.println("Equipo eliminado.");
             }
             default -> opcionInvalida();
@@ -209,21 +209,21 @@ public final class Menu {
     private void social(int opcion) {
         switch (opcion) {
             case 1 -> {
-                sistema.social().agregarAmistad(entero("Primera matrícula: "), entero("Segunda matrícula: "));
+                sistema.social().agregarAmistad(entero("Primera matricula: "), entero("Segunda matricula: "));
                 salida.println("Amistad registrada.");
             }
             case 2 -> {
-                sistema.social().quitarAmistad(entero("Primera matrícula: "), entero("Segunda matrícula: "));
+                sistema.social().quitarAmistad(entero("Primera matricula: "), entero("Segunda matricula: "));
                 salida.println("Amistad eliminada.");
             }
-            case 3 -> listar(sistema.social().amigosDe(entero("Matrícula: ")), "Sin amigos directos.");
+            case 3 -> listar(sistema.social().amigosDe(entero("Matricula: ")), "Sin amigos directos.");
             case 4 -> {
-                var recomendaciones = sistema.social().recomendar(entero("Matrícula: "));
+                var recomendaciones = sistema.social().recomendar(entero("Matricula: "));
                 if (recomendaciones.estaVacio()) {
                     salida.println("Sin contactos de segundo grado para recomendar.");
                 }
                 for (var recomendacion : recomendaciones) {
-                    salida.printf("%s | amigos en común: %d%n",
+                    salida.printf("%s | amigos en comun: %d%n",
                             recomendacion.estudiante(), recomendacion.amigosEnComun());
                 }
             }
@@ -232,9 +232,9 @@ public final class Menu {
     }
 
     private void imprimirBusqueda(String tipo, Busqueda<Estudiante> resultado) {
-        String unidad = resultado.comparaciones() == 1 ? "comparación" : "comparaciones";
+        String unidad = resultado.comparaciones() == 1 ? "comparacion" : "comparaciones";
         salida.printf("%s (%d %s): %s%n", tipo, resultado.comparaciones(), unidad,
-                resultado.encontrada() ? resultado.valor() : "matrícula no encontrada.");
+                resultado.encontrada() ? resultado.valor() : "matricula no encontrada.");
     }
 
     private void imprimirRecorrido(String algoritmo, Recorrido<String> resultado) {
@@ -256,7 +256,7 @@ public final class Menu {
         try {
             return Integer.parseInt(leer(pregunta));
         } catch (NumberFormatException error) {
-            throw new IllegalArgumentException("Ingrese un número entero válido.");
+            throw new IllegalArgumentException("Ingrese un numero entero valido.");
         }
     }
 
@@ -270,6 +270,6 @@ public final class Menu {
     }
 
     private void opcionInvalida() {
-        throw new IllegalArgumentException("Opción fuera del menú.");
+        throw new IllegalArgumentException("Opcion fuera del menu.");
     }
 }

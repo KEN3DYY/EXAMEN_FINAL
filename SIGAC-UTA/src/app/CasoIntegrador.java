@@ -40,27 +40,27 @@ public final class CasoIntegrador {
         Sigac sistema = preparar();
         salida.println("=== SIGAC-UTA | Caso integrador obligatorio ===");
         salida.println();
-        salida.println("[M1 y M3] Estudiantes, comparación de búsquedas y árbol ABB");
-        salida.println("Matrículas insertadas: [50, 30, 70, 20, 40, 60, 80]");
+        salida.println("[M1 y M3] Estudiantes, comparacion de busquedas y arbol ABB");
+        salida.println("Matriculas insertadas: [50, 30, 70, 20, 40, 60, 80]");
         salida.println("Preorden: " + sistema.estudiantes().preorden());
         salida.println("Inorden:  " + sistema.estudiantes().inorden());
         salida.println("Posorden: " + sistema.estudiantes().posorden());
         var comparacion = sistema.estudiantes().compararBusquedas(40);
-        salida.printf("Búsqueda de 40: %d comparaciones secuenciales y %d en el ABB.%n",
+        salida.printf("Busqueda de 40: %d comparaciones secuenciales y %d en el ABB.%n",
                 comparacion.secuencial().comparaciones(), comparacion.abb().comparaciones());
         sistema.eliminarEstudiante(30);
-        salida.println("Inorden después de eliminar 30: " + sistema.estudiantes().inorden());
+        salida.println("Inorden despues de eliminar 30: " + sistema.estudiantes().inorden());
         comparacion = sistema.estudiantes().compararBusquedas(30);
-        salida.printf("Búsqueda de 30: secuencial %s, ABB %s.%n",
+        salida.printf("Busqueda de 30: secuencial %s, ABB %s.%n",
                 comparacion.secuencial().encontrada() ? "encontrada" : "sin resultado",
                 comparacion.abb().encontrada() ? "encontrada" : "sin resultado");
-        salida.println("Jerarquía actual:");
+        salida.println("Jerarquia actual:");
         for (String linea : sistema.organizacion().lineasJerarquia()) {
             salida.println("  " + linea);
         }
 
         salida.println();
-        salida.println("[M2] Atención FIFO e historial LIFO");
+        salida.println("[M2] Atencion FIFO e historial LIFO");
         sistema.registrarSolicitud(1, 50, "PC1");
         sistema.registrarSolicitud(2, 70, "PC2");
         sistema.registrarSolicitud(3, 20, "PC3");
@@ -91,14 +91,14 @@ public final class CasoIntegrador {
         salida.println();
         salida.println("[M5] Recomendaciones para Ana");
         for (Recomendacion recomendacion : sistema.social().recomendar(50)) {
-            salida.printf("%s | amigos en común: %d%n",
+            salida.printf("%s | amigos en comun: %d%n",
                     recomendacion.estudiante().nombre(), recomendacion.amigosEnComun());
         }
 
         salida.println();
         salida.println("[M4] Conectividad actualizada");
         sistema.laboratorio().desconectar("SW1", "SRV1");
-        salida.println("Conexión retirada: SW1 -> SRV1.");
+        salida.println("Conexion retirada: SW1 -> SRV1.");
         bfs = sistema.laboratorio().bfs("PC1");
         salida.println("BFS desde PC1: " + bfs.visitados());
         salida.println("No alcanzables desde PC1: " + bfs.noAlcanzables());

@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Predicate;
 
-/** Lista simple que conserva el orden de inserción. */
+/** Lista simple que conserva el orden de insercion. */
 public final class ListaEnlazada<T> implements Iterable<T> {
     private static final class Nodo<T> {
         private final T valor;

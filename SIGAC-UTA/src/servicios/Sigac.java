@@ -3,7 +3,7 @@ package servicios;
 import modelo.Estudiante;
 import modelo.SolicitudLaboratorio;
 
-/** Coordina las operaciones que afectan a más de un módulo. */
+/** Coordina las operaciones que afectan a mas de un modulo. */
 public final class Sigac {
     private final OrganizacionAcademica organizacion = new OrganizacionAcademica();
     private final GestionEstudiantes estudiantes = new GestionEstudiantes(organizacion);
