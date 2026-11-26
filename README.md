@@ -4,11 +4,12 @@ Sistema Inteligente de Gestión Académica y Conectividad. Prototipo Java para e
 
 ## Compilación y ejecución
 
-Se requiere un **JDK 17 o posterior** con `javac` y `java` disponibles. Ejecutar los comandos desde la carpeta del proyecto, que contiene `fuentes.txt`. El proyecto usa únicamente Java estándar. La verificación de la entrega se realizó con JDK 21, compilando con `--release 17` y `-Xlint:all`.
+Se requiere un **JDK 17 o posterior** con `javac` y `java` disponibles. Desde la raíz del repositorio, entrar en la carpeta `SIGAC-UTA` y ejecutar los comandos. El proyecto usa únicamente Java estándar. La verificación de la entrega se realizó con JDK 21, compilando con `--release 17` y `-Xlint:all`.
 
 **Windows PowerShell**
 
 ```powershell
+cd SIGAC-UTA
 javac '@fuentes.txt'
 java -cp out app.Main
 ```
@@ -16,6 +17,7 @@ java -cp out app.Main
 **Windows CMD, Bash y Zsh**
 
 ```sh
+cd SIGAC-UTA
 javac @fuentes.txt
 java -cp out app.Main
 ```
@@ -90,11 +92,11 @@ Orden de registro de equipos: `PC1, SW1, SRV1, PC2, PC3, PC4`. `PC4` queda aisla
 
 | Ruta | Contenido |
 |---|---|
-| `src/modelo` | Estudiante y solicitud de laboratorio. |
-| `src/estructuras` | Vector, lista, pila, cola, árbol general, ABB y grafo implementados manualmente. |
-| `src/servicios` | Gestión académica, atención, historial, grafos y coordinación entre módulos. |
-| `src/app` | Punto de entrada, menú y escenario oficial. |
-| `src/pruebas` | Suite ejecutable de pruebas normales, extremas, erróneas e integradas. |
-| [Matriz de pruebas](docs/matriz-pruebas.md) | Resultados observados, comandos y capturas de salida. |
-| [Contribuciones](docs/contribuciones.md) | Commits locales verificables e instrucciones de publicación en GitHub. |
-| [Comprobación individual](docs/defensa.md) | Explicaciones de las cuatro preguntas previstas en el examen. |
+| `SIGAC-UTA/src/modelo` | Estudiante y solicitud de laboratorio. |
+| `SIGAC-UTA/src/estructuras` | Vector, lista, pila, cola, árbol general, ABB y grafo implementados manualmente. |
+| `SIGAC-UTA/src/servicios` | Gestión académica, atención, historial, grafos y coordinación entre módulos. |
+| `SIGAC-UTA/src/app` | Punto de entrada, menú y escenario oficial. |
+| `SIGAC-UTA/src/pruebas` | Suite ejecutable de pruebas normales, extremas, erróneas e integradas. |
+| [Matriz de pruebas](SIGAC-UTA/docs/matriz-pruebas.md) | Resultados esperados, resultados obtenidos y registros de consola. |
+| [Contribuciones](SIGAC-UTA/docs/contribuciones.md) | Commits de implementación y verificación publicados en GitHub. |
+| [Comprobación individual](SIGAC-UTA/docs/defensa.md) | Explicaciones de las cuatro preguntas previstas en el examen. |

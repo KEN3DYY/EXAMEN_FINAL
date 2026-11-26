@@ -1,34 +1,34 @@
 === Pruebas automatizadas SIGAC-UTA ===
-[OK] P01 | CRUD y edición visible en los índices y la jerarquía
-[OK] P02 | Matrícula duplicada y baja de ID inexistente
-[OK] P03 | Referencias nulas, campos vacíos e ID inválido
-[OK] P04 | Comparación de búsquedas exitosas y fallidas
-[OK] P05 | Lista enlazada: inicio, medio, fin y reinserción
-[OK] P06 | Vector: redimensionamiento, eliminación e índice inválido
+[OK] P01 | CRUD y edicion visible en los indices y la jerarquia
+[OK] P02 | Matricula duplicada y baja de ID inexistente
+[OK] P03 | Referencias nulas, campos vacios e ID invalido
+[OK] P04 | Comparacion de busquedas exitosas y fallidas
+[OK] P05 | Lista enlazada: inicio, medio, fin y reinsercion
+[OK] P06 | Vector: redimensionamiento, eliminacion e indice invalido
 [OK] P07 | ABB: preorden, inorden y posorden del caso obligatorio
-[OK] P08 | Eliminar 30 del ABB y mantener coherencia entre módulos
-[OK] P09 | Eliminar raíz: sucesor profundo conserva su hijo derecho
-[OK] P10 | ABB vacío, raíz con un hijo y eliminación de nodo único
-[OK] P11 | Árbol general con más de una facultad y carrera
+[OK] P08 | Eliminar 30 del ABB y mantener coherencia entre modulos
+[OK] P09 | Eliminar raiz: sucesor profundo conserva su hijo derecho
+[OK] P10 | ABB vacio, raiz con un hijo y eliminacion de nodo unico
+[OK] P11 | Arbol general con mas de una facultad y carrera
 [OK] P12 | Cola FIFO: tres solicitudes en el orden de llegada
-[OK] P13 | Cola vacía, llamada con nulo y nueva inserción
+[OK] P13 | Cola vacia, llamada con nulo y nueva insercion
 [OK] P14 | Pila LIFO: restaura dos cambios en orden inverso
-[OK] P15 | Pila vacía y cambios sin efecto o con valor inválido
+[OK] P15 | Pila vacia y cambios sin efecto o con valor invalido
 [OK] P16 | Solicitudes duplicadas, IDs inexistentes y nulos
 [OK] P17 | Baja segura con solicitudes pendientes
 [OK] P18 | Baja limpia amistades e historial sin alterar la pila restante
 [OK] P19 | BFS, pesos y PC4 no alcanzable
-[OK] P20 | DFS reproduce el orden de inserción de vecinos
+[OK] P20 | DFS reproduce el orden de insercion de vecinos
 [OK] P21 | Eliminar arista y actualizar ambos recorridos
 [OK] P22 | Grafo con ciclos y caminos convergentes
-[OK] P23 | Validación de vértices, aristas, pesos y red vacía
+[OK] P23 | Validacion de vertices, aristas, pesos y red vacia
 [OK] P24 | Eliminar equipo con aristas entrantes y salientes
-[OK] P25 | Ana: Diego con dos amigos en común y Elena con uno
-[OK] P26 | Exclusión de usuario, directos y contactos de tercer grado
-[OK] P27 | Desempate por matrícula y retirada de amistad recíproca
-[OK] P28 | Amistad duplicada, inexistente y autorrelación
-[OK] P29 | Caso obligatorio desde el menú y separado de la sesión
-[OK] P30 | Menú: entradas inválidas, CRUD interactivo y cola vacía
-[OK] P31 | El fin de entrada durante un formulario cierra la sesión
+[OK] P25 | Ana: Diego con dos amigos en comun y Elena con uno
+[OK] P26 | Exclusion de usuario, directos y contactos de tercer grado
+[OK] P27 | Desempate por matricula y retirada de amistad reciproca
+[OK] P28 | Amistad duplicada, inexistente y autorrelacion
+[OK] P29 | Caso obligatorio desde el menu y separado de la sesion
+[OK] P30 | Menu: entradas invalidas, CRUD interactivo y cola vacia
+[OK] P31 | El fin de entrada durante un formulario cierra la sesion
 
 RESULTADO: 31 aprobadas de 31 | 0 fallidas

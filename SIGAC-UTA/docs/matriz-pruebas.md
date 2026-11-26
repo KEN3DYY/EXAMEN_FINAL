@@ -6,7 +6,7 @@ La ejecución con JDK 21, compilada para Java 17, produjo **31 pruebas aprobadas
 
 | ID | Módulo | Tipo | Entrada o acción | Resultado esperado | Resultado obtenido |
 |---|---|---|---|---|---|
-| P01 | M1, M3 | Normal | Alta de 12, cambio de nombre, consulta y baja | Mismo nombre editado en búsquedas y jerarquía. Baja en todas las vistas. | Aprobada. Ambas búsquedas devolvieron a Isabel López. Vector y carrera quedaron vacíos. |
+| P01 | M1, M3 | Normal | Alta de 12, cambio de nombre, consulta y baja | Mismo nombre editado en búsquedas y jerarquía. Baja en todas las vistas. | Aprobada. Ambas búsquedas devolvieron a Isabel Lopez. Vector y carrera quedaron vacíos. |
 | P02 | M1 | Errónea | Repetir 50 e intentar borrar 99 | Ambos rechazos preservan los siete registros. | Aprobada. Matrícula 50 sigue siendo Ana y la jerarquía conserva siete hojas. |
 | P03 | M1 | Errónea | Nombre nulo o vacío, carrera nula, IDs 0 y −1 | Rechazo de las entradas inválidas sin crear registros. | Aprobada. Vector y ABB quedaron vacíos. |
 | P04 | M1, M3 | Normal | Buscar 40 y 99 con los siete datos oficiales | Para 40: 5 comparaciones secuenciales y 3 en ABB. Para 99: 7 y 3, sin coincidencias. | Aprobada. Se verificaron los cuatro conteos y el resultado de cada método. |
@@ -40,14 +40,10 @@ La ejecución con JDK 21, compilada para Java 17, produjo **31 pruebas aprobadas
 
 ## Evidencias de ejecución
 
-Las imágenes muestran extractos de las salidas reales de consola. Los archivos de texto conservan las salidas completas.
-
-| Evidencia | Qué muestra |
+| Registro | Qué muestra |
 |---|---|
-| [01 · Estudiantes y ABB](evidencias/01-abb-y-jerarquia.png) | Tres recorridos, comparación de búsquedas, eliminación de 30 y jerarquía académica. |
-| [02 · FIFO y LIFO](evidencias/02-fifo-y-lifo.png) | Procesamiento de S1, S2 y S3 y restauración de ambos cambios. |
-| [03 · Grafos y recomendaciones](evidencias/03-grafos.png) | Pesos, BFS, DFS, PC4 aislado, recomendaciones y efecto de retirar una arista. |
-| [04 · Suite de pruebas](evidencias/04-pruebas.png) | Estado de los 31 casos automatizados y resumen de la ejecución. |
-| [05 · Menú interactivo](evidencias/05-menu.png) | Opciones del programa y validaciones de entrada, cola vacía y pila vacía. |
+| [Caso integrador](evidencias/salida-caso.txt) | Recorridos del ABB, eliminación de la matrícula 30, solicitudes FIFO, cambios LIFO, rutas y recomendaciones. |
+| [Suite automatizada](evidencias/salida-pruebas.txt) | Resultado de los 31 casos y resumen de la ejecución. |
+| [Sesión del menú](evidencias/salida-menu.txt) | Validación de entradas, errores con cola y pila vacías y ejecución del caso integrador. |
 
-Registros completos de la [demostración](evidencias/salida-caso.txt), [suite](evidencias/salida-pruebas.txt) y [sesión del menú](evidencias/salida-menu.txt). Las [entradas de la sesión](evidencias/entradas-menu.txt) permiten repetir esta última.
+Las [entradas de la sesión](evidencias/entradas-menu.txt) permiten reproducir la prueba del menú.
