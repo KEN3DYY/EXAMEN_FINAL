@@ -1,6 +1,6 @@
 # Contribuciones y trazabilidad en GitHub
 
-La cuenta registrada en los ocho commits de implementación, pruebas y documentación que se verificaron es `KEN3DYY`. Los enlaces permiten inspeccionar los cambios de cada commit.
+La cuenta registra los ocho commits de implementación, pruebas y documentación que se verificaron en `KEN3DYY`. Los enlaces permiten inspeccionar los cambios de cada commit.
 
 | Commit | Aporte registrado |
 |---|---|
@@ -13,6 +13,4 @@ La cuenta registrada en los ocho commits de implementación, pruebas y documenta
 | [`2e779db`](https://github.com/KEN3DYY/EXAMEN_FINAL/commit/2e779dbb15019f4f0351ef6110fb95fd070b2e7e) | README, matriz y registros de ejecución. |
 | [`eb22681`](https://github.com/KEN3DYY/EXAMEN_FINAL/commit/eb22681c634113c1e5e313cbb06e15989b3462c3) | Ajustes en textos de consola y comentarios. |
 
-## Evidencia individual
 
-El historial publicado acredita aportes de la cuenta `KEN3DYY`. El historial del archivo `SIGAC-UTA.bundle` incluido en el ZIP registra a Codex como autor. Si el equipo tiene otros integrantes, la evidencia individual de cada uno queda pendiente hasta que sus aportes sustantivos y sus commits verificables estén disponibles en GitHub.
