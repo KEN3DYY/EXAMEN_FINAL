@@ -1,0 +1,113 @@
+
+=== SIGAC-UTA ===
+1. Estudiantes
+2. Atención de laboratorio e historial
+3. Organización académica y ABB
+4. Red de laboratorios
+5. Amistades y recomendaciones
+6. Ejecutar caso integrador
+0. Salir
+Opción: Error: Ingrese un número entero válido.
+
+=== SIGAC-UTA ===
+1. Estudiantes
+2. Atención de laboratorio e historial
+3. Organización académica y ABB
+4. Red de laboratorios
+5. Amistades y recomendaciones
+6. Ejecutar caso integrador
+0. Salir
+Opción:
+-- Atención de laboratorio e historial --
+1. Registrar solicitud
+2. Listar solicitudes pendientes
+3. Atender siguiente solicitud
+4. Deshacer último cambio de nombre
+0. Volver
+Opción: Error: La cola está vacía.
+
+-- Atención de laboratorio e historial --
+1. Registrar solicitud
+2. Listar solicitudes pendientes
+3. Atender siguiente solicitud
+4. Deshacer último cambio de nombre
+0. Volver
+Opción: Error: La pila está vacía.
+
+-- Atención de laboratorio e historial --
+1. Registrar solicitud
+2. Listar solicitudes pendientes
+3. Atender siguiente solicitud
+4. Deshacer último cambio de nombre
+0. Volver
+Opción:
+=== SIGAC-UTA ===
+1. Estudiantes
+2. Atención de laboratorio e historial
+3. Organización académica y ABB
+4. Red de laboratorios
+5. Amistades y recomendaciones
+6. Ejecutar caso integrador
+0. Salir
+Opción: === SIGAC-UTA | Caso integrador obligatorio ===
+
+[M1 y M3] Estudiantes, comparación de búsquedas y árbol ABB
+Matrículas insertadas: [50, 30, 70, 20, 40, 60, 80]
+Preorden: [50, 30, 20, 40, 70, 60, 80]
+Inorden:  [20, 30, 40, 50, 60, 70, 80]
+Posorden: [20, 40, 30, 60, 80, 70, 50]
+Búsqueda de 40: 5 comparaciones secuenciales y 3 en el ABB.
+Inorden después de eliminar 30: [20, 40, 50, 60, 70, 80]
+Búsqueda de 30: secuencial sin resultado, ABB sin resultado.
+Jerarquía actual:
+  UTA - Universidad Técnica de Ambato
+    FISEI - Facultad de Ingeniería en Sistemas, Electrónica e Industrial
+      SOF - Ingeniería en Software
+        Estudiante 50 - Ana
+        Estudiante 70 - Beto
+        Estudiante 20 - Carla
+        Estudiante 40 - Diego
+        Estudiante 60 - Elena
+        Estudiante 80 - Estudiante 80
+
+[M2] Atención FIFO e historial LIFO
+Solicitudes ingresadas: S1, S2, S3.
+Atendida: S1 | matrícula 50 | equipo PC1
+Atendida: S2 | matrícula 70 | equipo PC2
+Atendida: S3 | matrícula 20 | equipo PC3
+Solicitudes pendientes: 0
+Nombre inicial de 80: Estudiante 80.
+Cambios registrados: Nombre corregido, luego Nombre confirmado.
+Primer deshacer: 80 vuelve a Nombre corregido.
+Segundo deshacer: 80 vuelve a Estudiante 80.
+Cambios reversibles pendientes: 0
+
+[M4] Red dirigida de laboratorio
+Equipos: [PC1, SW1, SRV1, PC2, PC3, PC4]
+  PC1 -> SW1 (peso 2)
+  PC1 -> PC3 (peso 1)
+  SW1 -> SRV1 (peso 3)
+  SRV1 -> PC2 (peso 2)
+BFS desde PC1: [PC1, SW1, PC3, SRV1, PC2]
+No alcanzables desde PC1: [PC4]
+DFS desde PC1: [PC1, SW1, SRV1, PC2, PC3]
+
+[M5] Recomendaciones para Ana
+Diego | amigos en común: 2
+Elena | amigos en común: 1
+
+[M4] Conectividad actualizada
+Conexión retirada: SW1 -> SRV1.
+BFS desde PC1: [PC1, SW1, PC3]
+No alcanzables desde PC1: [SRV1, PC2, PC4]
+=== Fin del caso integrador ===
+
+=== SIGAC-UTA ===
+1. Estudiantes
+2. Atención de laboratorio e historial
+3. Organización académica y ABB
+4. Red de laboratorios
+5. Amistades y recomendaciones
+6. Ejecutar caso integrador
+0. Salir
+Opción: Fin de sesión.
